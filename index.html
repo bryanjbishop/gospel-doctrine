@@ -1,0 +1,447 @@
+<title>Isaiah's Night to Dawn</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --bg: #ece0c2;
+    --surface: #f7f1de;
+    --ink: #2a2115;
+    --ink-soft: #6e5f45;
+    --line-c: rgba(42,33,21,0.16);
+    --accent: #a8681f;
+    --rule: rgba(42,33,21,0.35);
+
+    --c1: #46529a;
+    --c2: #6a52a0;
+    --c3: #93507f;
+    --c4: #c07536;
+    --c5: #a8681f;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141a2e;
+      --surface: #1b2340;
+      --ink: #ece6d3;
+      --ink-soft: #a9a58f;
+      --line-c: rgba(236,230,211,0.14);
+      --accent: #e3a94a;
+      --rule: rgba(236,230,211,0.3);
+
+      --c1: #4a5aa0;
+      --c2: #6b5aa8;
+      --c3: #9a5a8f;
+      --c4: #d3893f;
+      --c5: #e3a94a;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #141a2e;
+    --surface: #1b2340;
+    --ink: #ece6d3;
+    --ink-soft: #a9a58f;
+    --line-c: rgba(236,230,211,0.14);
+    --accent: #e3a94a;
+    --rule: rgba(236,230,211,0.3);
+
+    --c1: #4a5aa0;
+    --c2: #6b5aa8;
+    --c3: #9a5a8f;
+    --c4: #d3893f;
+    --c5: #e3a94a;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Libre Franklin", ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3 { font-family: "Fraunces", Georgia, "Times New Roman", serif; text-wrap: balance; margin: 0; }
+
+  .wrap {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 20px 72px;
+  }
+
+  /* ---------- Header ---------- */
+
+  header {
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 8px;
+  }
+
+  .eyebrow {
+    font-size: 12.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: clamp(36px, 9vw, 52px);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .dek {
+    margin-top: 14px;
+    max-width: 54ch;
+    color: var(--ink-soft);
+    font-size: 16px;
+  }
+
+  .horizon {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 24px 0 4px;
+  }
+
+  /* ---------- Jump nav ---------- */
+
+  nav.jump {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 18px 0 24px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  nav.jump::-webkit-scrollbar { display: none; }
+
+  nav.jump a {
+    flex: none;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    padding: 7px 13px;
+    border-radius: 999px;
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    background: var(--surface);
+  }
+  nav.jump a span {
+    font-weight: 400;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  nav.jump a:focus-visible, a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  /* ---------- Timeline ---------- */
+
+  .timeline {
+    position: relative;
+    margin-top: 20px;
+    padding-left: 44px;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 15px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--c1), var(--c2), var(--c3), var(--c4), var(--c5));
+    border-radius: 2px;
+  }
+
+  .period {
+    position: relative;
+    padding-bottom: 44px;
+    scroll-margin-top: 20px;
+  }
+  .period:last-child { padding-bottom: 0; }
+
+  .node {
+    position: absolute;
+    left: -44px;
+    top: 2px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    border: 2px solid var(--dot);
+    color: var(--dot);
+  }
+  .node svg { width: 16px; height: 16px; display: block; }
+
+  .period-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 12px;
+    margin-bottom: 4px;
+  }
+
+  .period-num {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--dot);
+  }
+
+  .period-when {
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  .period-sub {
+    color: var(--ink-soft);
+    font-size: 13.5px;
+  }
+
+  .chapters {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--dot);
+    background: color-mix(in srgb, var(--dot) 14%, transparent);
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 10px;
+  }
+
+  h2.theme {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  ul.happenings {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  ul.happenings li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  ul.happenings li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--dot);
+    opacity: 0.7;
+  }
+
+  .period[data-i="0"] { --dot: var(--c1); }
+  .period[data-i="1"] { --dot: var(--c2); }
+  .period[data-i="2"] { --dot: var(--c3); }
+  .period[data-i="3"] { --dot: var(--c4); }
+  .period[data-i="4"] { --dot: var(--c5); }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 22px;
+    border-top: 1px solid var(--rule);
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+  footer p { margin: 0 0 6px; }
+  footer p:last-child { margin-bottom: 0; }
+
+  @media (min-width: 640px) {
+    .wrap { padding: 64px 32px 96px; }
+    .timeline { padding-left: 56px; }
+    .timeline::before { left: 19px; }
+    .node { left: -56px; width: 40px; height: 40px; }
+    .node svg { width: 19px; height: 19px; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">A reading map for Gospel Doctrine</div>
+    <h1>Isaiah, night <em>to</em> dawn</h1>
+    <p class="dek">Sixty-six chapters fall into five movements — from a rebellious nation warned to repent, through the Assyrian siege of Jerusalem, to a scattered Israel gathered home and a light finally offered to every nation.</p>
+  </header>
+
+  <svg class="horizon" viewBox="0 0 700 90" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="skyline" x1="0" y1="0" x2="700" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="var(--c1)"/>
+        <stop offset="25%" stop-color="var(--c2)"/>
+        <stop offset="50%" stop-color="var(--c3)"/>
+        <stop offset="75%" stop-color="var(--c4)"/>
+        <stop offset="100%" stop-color="var(--c5)"/>
+      </linearGradient>
+    </defs>
+    <line x1="0" y1="70" x2="700" y2="70" stroke="url(#skyline)" stroke-width="2"/>
+    <circle cx="70" cy="70" r="3" fill="var(--c1)"/>
+    <circle cx="245" cy="70" r="3" fill="var(--c2)"/>
+    <circle cx="350" cy="70" r="3" fill="var(--c3)"/>
+    <circle cx="490" cy="70" r="3" fill="var(--c4)"/>
+    <circle cx="630" cy="70" r="24" fill="none" stroke="var(--c5)" stroke-width="2"/>
+    <path d="M 630 46 v -12 M 649 55 l 9 -9 M 611 55 l -9 -9" stroke="var(--c5)" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+
+  <nav class="jump" aria-label="Jump to a period">
+    <a href="#p1"><span>1</span>Overview</a>
+    <a href="#p2"><span>2–35</span>Repent or die</a>
+    <a href="#p3"><span>36–39</span>The bridge</a>
+    <a href="#p4"><span>40–55</span>Gathering</a>
+    <a href="#p5"><span>56–66</span>Gentiles</a>
+  </nav>
+
+  <div class="timeline">
+
+    <section class="period" id="p1" data-i="0">
+      <span class="node" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 4h10a2 2 0 0 1 2 2v14l-3-2-3 2-3-2-3 2V6a2 2 0 0 1 2-2z"/>
+          <line x1="9" y1="8" x2="15" y2="8"/>
+          <line x1="9" y1="12" x2="15" y2="12"/>
+        </svg>
+      </span>
+      <div class="period-head">
+        <span class="period-num">01</span>
+        <span class="period-when">Before ~700 BC</span>
+        <span class="period-sub">— the introduction</span>
+      </div>
+      <span class="chapters">Isaiah 1</span>
+      <h2 class="theme">The big picture</h2>
+      <ul class="happenings">
+        <li>The people of Israel are apostate, rebellious, and corrupt; only a few remain faithful.</li>
+        <li>Their sacrifices and feasts are rejected.</li>
+        <li>They are called to repent and work righteousness.</li>
+        <li>Zion will be redeemed in the day of restoration.</li>
+      </ul>
+    </section>
+
+    <section class="period" id="p2" data-i="1">
+      <span class="node" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3 2 20h20L12 3z"/>
+          <line x1="12" y1="10" x2="12" y2="14.5"/>
+          <circle cx="12" cy="17.2" r="0.6" fill="currentColor" stroke="none"/>
+        </svg>
+      </span>
+      <div class="period-head">
+        <span class="period-num">02</span>
+        <span class="period-when">~700 BC</span>
+        <span class="period-sub">— before the Assyrian conquest</span>
+      </div>
+      <span class="chapters">Isaiah 2–35</span>
+      <h2 class="theme">Repent or die</h2>
+      <ul class="happenings">
+        <li>Israel and Judah still have an opportunity to repent, but Isaiah warns of coming destruction and Assyrian conquest.</li>
+      </ul>
+    </section>
+
+    <section class="period" id="p3" data-i="2">
+      <span class="node" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 21V10l4-3 4 3 4-3 4 3v11"/>
+          <line x1="4" y1="21" x2="20" y2="21"/>
+          <line x1="8" y1="14" x2="8" y2="21"/>
+          <line x1="16" y1="14" x2="16" y2="21"/>
+          <line x1="12" y1="12" x2="12" y2="21"/>
+        </svg>
+      </span>
+      <div class="period-head">
+        <span class="period-num">03</span>
+        <span class="period-when">~700 BC</span>
+        <span class="period-sub">— the Assyrian invasion</span>
+      </div>
+      <span class="chapters">Isaiah 36–39</span>
+      <h2 class="theme">The bridge <span style="font-weight:400; font-size:15px; color:var(--ink-soft);">(from 2 Kings 18–20)</span></h2>
+      <ul class="happenings">
+        <li>The Assyrians attack. Jerusalem is threatened.</li>
+        <li>These chapters connect the first and second halves of Isaiah.</li>
+      </ul>
+    </section>
+
+    <section class="period" id="p4" data-i="3">
+      <span class="node" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 17c3-6 13-6 16 0"/>
+          <line x1="12" y1="5" x2="12" y2="2"/>
+          <line x1="5.5" y1="8.5" x2="3.5" y2="6.5"/>
+          <line x1="18.5" y1="8.5" x2="20.5" y2="6.5"/>
+          <line x1="2" y1="20" x2="22" y2="20"/>
+        </svg>
+      </span>
+      <div class="period-head">
+        <span class="period-num">04</span>
+        <span class="period-when">After the kingdoms are destroyed</span>
+        <span class="period-sub">— post–700 BC</span>
+      </div>
+      <span class="chapters">Isaiah 40–55</span>
+      <h2 class="theme">Gathering &amp; redemption</h2>
+      <ul class="happenings">
+        <li>The focus shifts from warning Israel about destruction to God's promise to redeem and gather scattered Israel.</li>
+      </ul>
+    </section>
+
+    <section class="period" id="p5" data-i="4">
+      <span class="node" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="8.5"/>
+          <path d="M3.5 12h17M12 3.5a13 13 0 0 1 0 17 13 13 0 0 1 0-17z"/>
+        </svg>
+      </span>
+      <div class="period-head">
+        <span class="period-num">05</span>
+        <span class="period-when">Later prophetic horizon</span>
+        <span class="period-sub">— post–700 BC</span>
+      </div>
+      <span class="chapters">Isaiah 56–66</span>
+      <h2 class="theme">Israel + Gentiles</h2>
+      <ul class="happenings">
+        <li>The gathering expands. Gentiles are invited into the covenant, the temple, and the house of Israel.</li>
+        <li>Israel's scattering ultimately becomes a blessing to the nations.</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Structure: chs. 1 (overview) · 2–35 (warning) · 36–39 (historical bridge, parallel to 2 Kings 18–20) · 40–55 (redemption) · 56–66 (Israel and the Gentiles).</p>
+    <p>A study aid for personal or class use — not a substitute for the text itself.</p>
+  </footer>
+
+</div>
