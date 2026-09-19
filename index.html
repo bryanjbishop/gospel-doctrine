@@ -58,7 +58,8 @@
     background: var(--bg);
     color: var(--ink);
     font-family: "Libre Franklin", ui-sans-serif, system-ui, sans-serif;
-    line-height: 1.5;
+    font-size: 18px;
+    line-height: 1.55;
   }
 
   h1, h2, h3 { font-family: "Fraunces", Georgia, "Times New Roman", serif; text-wrap: balance; margin: 0; }
@@ -78,16 +79,16 @@
   }
 
   .eyebrow {
-    font-size: 12.5px;
-    letter-spacing: 0.14em;
+    font-size: 15px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--accent);
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   h1 {
-    font-size: clamp(36px, 9vw, 52px);
+    font-size: clamp(40px, 11vw, 56px);
     font-weight: 700;
     letter-spacing: -0.01em;
   }
@@ -99,10 +100,10 @@
   }
 
   .dek {
-    margin-top: 14px;
+    margin-top: 16px;
     max-width: 54ch;
     color: var(--ink-soft);
-    font-size: 16px;
+    font-size: 19px;
   }
 
   .horizon {
@@ -130,13 +131,13 @@
     flex: none;
     display: flex;
     align-items: baseline;
-    gap: 6px;
-    padding: 7px 13px;
+    gap: 7px;
+    padding: 9px 16px;
     border-radius: 999px;
     border: 1px solid var(--rule);
     color: var(--ink);
     text-decoration: none;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 600;
     white-space: nowrap;
     background: var(--surface);
@@ -156,7 +157,7 @@
   .timeline {
     position: relative;
     margin-top: 20px;
-    padding-left: 44px;
+    padding-left: 52px;
   }
 
   .timeline::before {
@@ -164,7 +165,7 @@
     position: absolute;
     top: 6px;
     bottom: 6px;
-    left: 15px;
+    left: 17px;
     width: 2px;
     background: linear-gradient(to bottom, var(--c1), var(--c2), var(--c3), var(--c4), var(--c5));
     border-radius: 2px;
@@ -172,17 +173,17 @@
 
   .period {
     position: relative;
-    padding-bottom: 44px;
+    padding-bottom: 48px;
     scroll-margin-top: 20px;
   }
   .period:last-child { padding-bottom: 0; }
 
   .node {
     position: absolute;
-    left: -44px;
+    left: -52px;
     top: 2px;
-    width: 32px;
-    height: 32px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -191,53 +192,53 @@
     border: 2px solid var(--dot);
     color: var(--dot);
   }
-  .node svg { width: 16px; height: 16px; display: block; }
+  .node svg { width: 19px; height: 19px; display: block; }
 
   .period-head {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
     gap: 8px 12px;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
 
   .period-num {
     font-family: "Fraunces", serif;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 16px;
     color: var(--dot);
   }
 
   .period-when {
     font-weight: 700;
-    font-size: 15px;
+    font-size: 18px;
   }
 
   .period-sub {
     color: var(--ink-soft);
-    font-size: 13.5px;
+    font-size: 16px;
   }
 
   .chapters {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    font-size: 12.5px;
+    font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.03em;
     text-transform: uppercase;
     color: var(--dot);
     background: color-mix(in srgb, var(--dot) 14%, transparent);
     border-radius: 6px;
-    padding: 3px 8px;
+    padding: 4px 10px;
     font-variant-numeric: tabular-nums;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   h2.theme {
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   ul.happenings {
@@ -246,22 +247,22 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
   }
 
   ul.happenings li {
     position: relative;
-    padding-left: 18px;
-    font-size: 15px;
+    padding-left: 22px;
+    font-size: 18px;
     color: var(--ink);
   }
   ul.happenings li::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 9px;
-    width: 6px;
-    height: 6px;
+    top: 11px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background: var(--dot);
     opacity: 0.7;
@@ -277,18 +278,18 @@
     margin-top: 48px;
     padding-top: 22px;
     border-top: 1px solid var(--rule);
-    font-size: 13.5px;
+    font-size: 16px;
     color: var(--ink-soft);
   }
-  footer p { margin: 0 0 6px; }
+  footer p { margin: 0 0 8px; }
   footer p:last-child { margin-bottom: 0; }
 
   @media (min-width: 640px) {
     .wrap { padding: 64px 32px 96px; }
-    .timeline { padding-left: 56px; }
-    .timeline::before { left: 19px; }
-    .node { left: -56px; width: 40px; height: 40px; }
-    .node svg { width: 19px; height: 19px; }
+    .timeline { padding-left: 64px; }
+    .timeline::before { left: 21px; }
+    .node { left: -64px; width: 44px; height: 44px; }
+    .node svg { width: 21px; height: 21px; }
   }
 </style>
 
@@ -388,7 +389,7 @@
         <span class="period-sub">— the Assyrian invasion</span>
       </div>
       <span class="chapters">Isaiah 36–39</span>
-      <h2 class="theme">The bridge <span style="font-weight:400; font-size:15px; color:var(--ink-soft);">(from 2 Kings 18–20)</span></h2>
+      <h2 class="theme">The bridge <span style="font-weight:400; font-size:17px; color:var(--ink-soft);">(from 2 Kings 18–20)</span></h2>
       <ul class="happenings">
         <li>The Assyrians attack. Jerusalem is threatened.</li>
         <li>These chapters connect the first and second halves of Isaiah.</li>
